@@ -12,10 +12,11 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/tharsis/ethermint/encoding"
-	ethermint "github.com/tharsis/ethermint/types"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/Canto-Network/ethermint/encoding"
+	ethermint "github.com/Canto-Network/ethermint/types"
+	evmtypes "github.com/Canto-Network/ethermint/x/evm/types"
 
+	"github.com/Canto-Network/ethermint/crypto/ethsecp256k1"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
@@ -26,7 +27,6 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
 )
 
 // DefaultConsensusParams defines the default Tendermint consensus params used in

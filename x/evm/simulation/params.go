@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"math/rand"
 
+	"github.com/Canto-Network/ethermint/x/evm/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"github.com/tharsis/ethermint/x/evm/types"
 )
 
 const (

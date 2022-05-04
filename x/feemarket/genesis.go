@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/tharsis/ethermint/x/feemarket/keeper"
-	"github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/Canto-Network/ethermint/x/feemarket/keeper"
+	"github.com/Canto-Network/ethermint/x/feemarket/types"
 )
 
 // InitGenesis initializes genesis state based on exported genesis

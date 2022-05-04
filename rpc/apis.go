@@ -10,16 +10,16 @@ import (
 
 	"github.com/ethereum/go-ethereum/rpc"
 
-	"github.com/tharsis/ethermint/rpc/ethereum/backend"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/debug"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/eth"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/eth/filters"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/miner"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/net"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/personal"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/txpool"
-	"github.com/tharsis/ethermint/rpc/ethereum/namespaces/web3"
-	"github.com/tharsis/ethermint/rpc/ethereum/types"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/backend"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/debug"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/eth"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/eth/filters"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/miner"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/net"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/personal"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/txpool"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/namespaces/web3"
+	"github.com/Canto-Network/ethermint/rpc/ethereum/types"
 
 	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 )

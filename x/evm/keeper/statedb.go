@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"math/big"
 
+	ethermint "github.com/Canto-Network/ethermint/types"
+	"github.com/Canto-Network/ethermint/x/evm/statedb"
+	"github.com/Canto-Network/ethermint/x/evm/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/tharsis/ethermint/types"
-	"github.com/tharsis/ethermint/x/evm/statedb"
-	"github.com/tharsis/ethermint/x/evm/types"
 )
 
 var _ statedb.Keeper = &Keeper{}
@@ -33,6 +33,18 @@ func (k *Keeper) GetAccount(ctx sdk.Context, addr common.Address) *statedb.Accou
 
 // GetState loads contract state from database, implements `statedb.Keeper` interface.
 func (k *Keeper) GetState(ctx sdk.Context, addr common.Address, key common.Hash) common.Hash {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.AddressStoragePrefix(addr))
+
+	value := store.Get(key.Bytes())
+	if len(value) == 0 {
+		return common.Hash{}
+	}
+
+	return common.BytesToHash(value)
+}
+
+// GET PROPOSAL DATA FOR UNIGOV
+func (k *Keeper) GetProposal(ctx sdk.Context, addr common.Address, key common.Hash) common.Hash {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.AddressStoragePrefix(addr))
 
 	value := store.Get(key.Bytes())

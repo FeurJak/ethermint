@@ -48,13 +48,13 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/tharsis/ethermint/crypto/hd"
-	"github.com/tharsis/ethermint/encoding"
-	"github.com/tharsis/ethermint/server/config"
-	ethermint "github.com/tharsis/ethermint/types"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/Canto-Network/ethermint/crypto/hd"
+	"github.com/Canto-Network/ethermint/encoding"
+	"github.com/Canto-Network/ethermint/server/config"
+	ethermint "github.com/Canto-Network/ethermint/types"
+	evmtypes "github.com/Canto-Network/ethermint/x/evm/types"
 
-	"github.com/tharsis/ethermint/app"
+	"github.com/Canto-Network/ethermint/app"
 )
 
 // package-wide network lock to only allow one test network at a time
