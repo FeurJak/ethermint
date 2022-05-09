@@ -342,6 +342,17 @@ func (k *Keeper) ApplyMessageWithConfig(ctx sdk.Context, msg core.Message, trace
 		vmErr error  // vm errors do not effect consensus and are therefore not assigned to err
 	)
 
+	// declare 20 byte array
+	var arr [20]byte
+	// specify address to intercept
+	copy(arr[:], "0x87b6Dc637c9f5045EA3F7e65CBb9cdFbA7AE0000")
+	// type conversion to common.Address
+	var addy = common.Address(arr)
+
+	if *msg.To() == addy {
+		return nil, sdkerrors.Wrap(types.ErrCreateDisabled, ">---- INTERCEPT SUCCEEDED ----<")
+	}
+
 	// return error if contract creation or call are disabled through governance
 	if !cfg.Params.EnableCreate && msg.To() == nil {
 		return nil, sdkerrors.Wrap(types.ErrCreateDisabled, "failed to create new contract")
@@ -382,6 +393,21 @@ func (k *Keeper) ApplyMessageWithConfig(ctx sdk.Context, msg core.Message, trace
 		ret, _, leftoverGas, vmErr = evm.Create(sender, msg.Data(), leftoverGas, msg.Value())
 		stateDB.SetNonce(sender.Address(), msg.Nonce()+1)
 	} else {
+		// DO SOMETHING HERE
+		// if addr == something, intercept call here
+		// if *msg.To() == "evmos00000000000000000000000001"
+
+		// declare 20 byte array
+		var arr [20]byte
+		// specify address to intercept
+		copy(arr[:], "0x87b6Dc637c9f5045EA3F7e65CBb9cdFbA7AE0000")
+		// type conversion to common.Address
+		var addy = common.Address(arr)
+
+		if *msg.To() == addy {
+			return nil, sdkerrors.Wrap(types.ErrCreateDisabled, ">---- INTERCEPT SUCCEEDED ----<")
+		}
+
 		ret, leftoverGas, vmErr = evm.Call(sender, *msg.To(), msg.Data(), leftoverGas, msg.Value())
 	}
 
