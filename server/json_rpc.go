@@ -69,7 +69,7 @@ func StartJSONRPC(ctx *server.Context, clientCtx client.Context, tmRPCAddr, tmEn
 
 	errCh := make(chan error)
 	go func() {
-		ctx.Logger.Info("Starting JSON-RPC server", "address", config.JSONRPC.Address)
+		ctx.Logger.Info("Starting Custom Ethermint JSON-RPC server", "address", config.JSONRPC.Address)
 		if err := httpSrv.ListenAndServe(); err != nil {
 			if err == http.ErrServerClosed {
 				close(httpSrvDone)
@@ -88,7 +88,7 @@ func StartJSONRPC(ctx *server.Context, clientCtx client.Context, tmRPCAddr, tmEn
 	case <-time.After(types.ServerStartTime): // assume JSON RPC server started successfully
 	}
 
-	ctx.Logger.Info("Starting JSON WebSocket server", "address", config.JSONRPC.WsAddress)
+	ctx.Logger.Info("Starting Custom Ethermint JSON WebSocket server", "address", config.JSONRPC.WsAddress)
 
 	// allocate separate WS connection to Tendermint
 	tmWsClient = ConnectTmWS(tmRPCAddr, tmEndpoint, ctx.Logger)
